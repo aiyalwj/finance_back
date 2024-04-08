@@ -21,7 +21,7 @@ public enum RespBeanEnum {
     /**
      * id 密码 输入为空
      */
-    LOGIN_INPUT_EMPTY(4001,"请输入账号和密码！","warning"),
+    NOT_DATA(4001,"没有数据","warning"),
 
     /**
      * id为空

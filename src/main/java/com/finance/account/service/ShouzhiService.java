@@ -5,6 +5,7 @@ import com.finance.account.entity.Shouzhi;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.xml.transform.Result;
+import java.util.Date;
 
 /**
 * @author Windows
@@ -13,4 +14,6 @@ import javax.xml.transform.Result;
 */
 public interface ShouzhiService extends IService<Shouzhi> {
     RespBean addAccount(Shouzhi shouzhi);
+
+    RespBean indexLoader(String date);
 }

@@ -15,7 +15,7 @@ import java.util.Map;
 @RestController
 @Slf4j
 @Api(value= "收支明细" ,tags = "收支明细")
-@RequestMapping("/account")
+@RequestMapping("/api/account")
 public class accountController {
     @Autowired
     private ShouzhiService shouzhiService;

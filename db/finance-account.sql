@@ -11,7 +11,7 @@
  Target Server Version : 80036
  File Encoding         : 65001
 
- Date: 03/04/2024 16:55:48
+ Date: 08/04/2024 16:55:23
 */
 
 SET NAMES utf8mb4;
@@ -79,6 +79,12 @@ CREATE TABLE `shouzhi`  (
 -- ----------------------------
 INSERT INTO `shouzhi` VALUES (1, '2024-04-03 16:21:27', '25', '', '默认类别', NULL, 'xiaoming');
 INSERT INTO `shouzhi` VALUES (2, '2024-04-03 14:09:28', '20', '', '餐饮', '', 'xiaofang');
+INSERT INTO `shouzhi` VALUES (3, '2024-04-08 09:36:28', NULL, '36', '默认类别', NULL, 'xiaofang');
+INSERT INTO `shouzhi` VALUES (4, '2024-04-08 09:58:50', '20', '', '餐饮', '', '');
+INSERT INTO `shouzhi` VALUES (5, '2024-04-08 10:06:35', '6.8', NULL, '默认类别', NULL, 'xiaofang');
+INSERT INTO `shouzhi` VALUES (6, '2024-04-08 10:06:46', NULL, '7.5', '默认类别', NULL, 'xiaofang');
+INSERT INTO `shouzhi` VALUES (7, '2024-04-08 10:06:56', '10', NULL, '默认类别', NULL, 'xiaofang');
+INSERT INTO `shouzhi` VALUES (8, '2024-04-08 10:07:10', '28', NULL, '默认类别', NULL, 'xiaofang');
 
 -- ----------------------------
 -- Table structure for usermng

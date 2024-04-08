@@ -1,9 +1,15 @@
 package com.finance.account.mapper;
 
+import com.finance.account.entity.Result.IndexData;
 import com.finance.account.entity.Shouzhi;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
 * @author Windows
@@ -14,6 +20,8 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface ShouzhiMapper extends BaseMapper<Shouzhi> {
     void addacount(@Param("shouzhi") Shouzhi shouzhi);
+
+    IndexData loaderData(@Param("date") String date);
 }
 
 

@@ -2,6 +2,8 @@ package com.finance.account.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.finance.account.dto.RespBean;
+import com.finance.account.dto.RespBeanEnum;
+import com.finance.account.entity.Result.IndexData;
 import com.finance.account.service.ShouzhiService;
 import com.finance.account.entity.Shouzhi;
 import com.finance.account.mapper.ShouzhiMapper;
@@ -9,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.xml.transform.Result;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
 * @author Windows
@@ -24,6 +29,21 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
     public RespBean addAccount(Shouzhi shouzhi) {
         shouzhiMapper.addacount(shouzhi);
         return RespBean.success();
+    }
+
+    @Override
+    public RespBean indexLoader(String date) {
+        IndexData result = shouzhiMapper.loaderData(date);
+        if(result == null){
+            IndexData resultReplce = new IndexData();
+            resultReplce.setInSum(0);
+            resultReplce.setExSum(0);
+            resultReplce.setDate(date);
+            return RespBean.error(RespBeanEnum.NOT_DATA,resultReplce);
+        }else {
+            result.setDate(date);
+            return RespBean.success(result);
+        }
     }
 }
 

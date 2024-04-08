@@ -24,4 +24,11 @@
         insert into shouzhi(income,expenses,category,notes,belong)
         values (#{shouzhi.income},#{shouzhi.expenses},#{shouzhi.category},#{shouzhi.notes},#{shouzhi.belong})
     </insert>
+    <select id="loaderData" resultType="com.finance.account.entity.Result.IndexData">
+        select sum(income) as inSum,sum(expenses) as exSum
+        from shouzhi
+        where time > #{date}
+        and time &lt; DATE_ADD(#{date}, INTERVAL 1 DAY);
+    </select>
+
 </mapper>
