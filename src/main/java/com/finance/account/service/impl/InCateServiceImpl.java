@@ -1,10 +1,15 @@
 package com.finance.account.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.finance.account.dto.RespBean;
+import com.finance.account.mapper.ExCateMapper;
 import com.finance.account.service.InCateService;
 import com.finance.account.entity.InCate;
 import com.finance.account.mapper.InCateMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author Windows
@@ -14,7 +19,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class InCateServiceImpl extends ServiceImpl<InCateMapper, InCate>
     implements InCateService {
-
+    @Autowired
+    private InCateMapper inCateMapper;
+    @Override
+    public RespBean inCategory() {
+        List<String> result = inCateMapper.incategory();
+//        System.out.println(result);
+        return RespBean.success(result);
+    }
 }
 
 

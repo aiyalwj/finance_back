@@ -1,10 +1,14 @@
 package com.finance.account.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.finance.account.dto.RespBean;
 import com.finance.account.service.ExCateService;
 import com.finance.account.entity.ExCate;
 import com.finance.account.mapper.ExCateMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author Windows
@@ -14,7 +18,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExCateServiceImpl extends ServiceImpl<ExCateMapper, ExCate>
     implements ExCateService {
-
+    @Autowired
+    private ExCateMapper exCateMapper;
+    @Override
+    public RespBean exCategory() {
+        List<String> result = exCateMapper.excategory();
+//        System.out.println(result);
+        return RespBean.success(result);
+    }
 }
 
 

@@ -1,5 +1,6 @@
 package com.finance.account.service;
 
+import com.finance.account.dto.RespBean;
 import com.finance.account.entity.ExCate;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -9,5 +10,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2024-04-01 15:37:17
 */
 public interface ExCateService extends IService<ExCate> {
-
+    RespBean exCategory();
 }

@@ -13,4 +13,8 @@
     <sql id="Base_Column_List">
         id,category,belong
     </sql>
+    <select id="incategory" resultType="java.lang.String">
+        select category
+        from in_cate
+    </select>
 </mapper>

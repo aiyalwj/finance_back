@@ -4,6 +4,8 @@ import com.finance.account.entity.ExCate;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
 * @author Windows
 * @description 针对表【ex_cate(支出类别表)】的数据库操作Mapper
@@ -12,7 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
 */
 @Mapper
 public interface ExCateMapper extends BaseMapper<ExCate> {
-
+    List<String> excategory();
 }
 
 
