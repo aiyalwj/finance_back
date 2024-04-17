@@ -48,4 +48,10 @@ public class accountController {
     public RespBean returnExCategory(){
         return exCateService.exCategory();
     }
+
+    @ApiOperation(value = "查询所有筛选结果")
+    @GetMapping("/queryAll")
+    public RespBean queryAll(){
+        return shouzhiService.queryAll();
+    }
 }

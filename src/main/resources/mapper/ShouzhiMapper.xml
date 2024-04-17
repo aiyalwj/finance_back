@@ -30,5 +30,10 @@
         where time > #{date}
         and time &lt; DATE_ADD(#{date}, INTERVAL 1 DAY);
     </select>
+    <select id="queryAll" resultType="com.finance.account.entity.Shouzhi">
+        select *
+        from shouzhi
+        order by time DESC
+    </select>
 
 </mapper>

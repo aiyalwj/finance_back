@@ -16,4 +16,6 @@ public interface ShouzhiService extends IService<Shouzhi> {
     RespBean addAccount(Shouzhi shouzhi);
 
     RespBean indexLoader(String date);
+
+    RespBean queryAll();
 }

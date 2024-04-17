@@ -46,6 +46,15 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
         }
     }
 
+    @Override
+    public RespBean queryAll() {
+        List<Shouzhi> result = shouzhiMapper.queryAll();
+        if(result == null){
+            return RespBean.error(RespBeanEnum.NOT_DATA);
+        }else{
+            return RespBean.success(result);
+        }
+    }
 }
 
 

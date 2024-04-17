@@ -22,6 +22,8 @@ public interface ShouzhiMapper extends BaseMapper<Shouzhi> {
     void addacount(@Param("shouzhi") Shouzhi shouzhi);
 
     IndexData loaderData(@Param("date") String date);
+
+    List<Shouzhi> queryAll();
 }
 
 
