@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.xml.transform.Result;
 import java.util.Date;
+import java.util.List;
 
 /**
 * @author Windows
@@ -18,4 +19,6 @@ public interface ShouzhiService extends IService<Shouzhi> {
     RespBean indexLoader(String date);
 
     RespBean queryAll();
+
+    RespBean queryCond(List<String> data);
 }

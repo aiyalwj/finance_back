@@ -54,4 +54,13 @@ public class accountController {
     public RespBean queryAll(){
         return shouzhiService.queryAll();
     }
+
+    @ApiOperation(value = "根据筛选条件查询")
+    @PostMapping("/queryWithCond")
+    public RespBean queryWithCond(@RequestBody List<String> data){
+//        System.out.println(data);
+        return shouzhiService.queryCond(data);
+    }
+
+
 }

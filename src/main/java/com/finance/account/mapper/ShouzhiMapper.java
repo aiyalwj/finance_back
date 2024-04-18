@@ -24,6 +24,13 @@ public interface ShouzhiMapper extends BaseMapper<Shouzhi> {
     IndexData loaderData(@Param("date") String date);
 
     List<Shouzhi> queryAll();
+
+    List<Shouzhi> queryEx(List<String> date);
+
+    List<Shouzhi> queryIn(List<String> date);
+
+    List<Shouzhi> queryJstDate(List<String> date);
+
 }
 
 

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.xml.transform.Result;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -54,6 +55,32 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
         }else{
             return RespBean.success(result);
         }
+    }
+
+    @Override
+    public RespBean queryCond(List<String> data) {
+        List<Shouzhi> result = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).equals("0")) {
+                data.set(i, null);
+            }
+        }
+//        System.out.println("service"+data);
+//        System.out.println("service0"+data.get(0));
+        if(data.get(0) != null){
+            if(data.get(0).equals("支出")){
+                result = shouzhiMapper.queryEx(data);
+            }else if(data.get(0).equals("收入")){
+                result = shouzhiMapper.queryIn(data);
+            }
+        }else{
+            result = shouzhiMapper.queryJstDate(data);
+        }
+
+        if(result == null){
+            return RespBean.error(RespBeanEnum.NOT_DATA);
+        }
+        return RespBean.success(result);
     }
 }
 

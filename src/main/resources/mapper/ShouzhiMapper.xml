@@ -35,5 +35,30 @@
         from shouzhi
         order by time DESC
     </select>
+    <select id="queryEx" resultType="com.finance.account.entity.Shouzhi">
+        select *
+        from shouzhi
+        where category = #{date[1]}
+        and expenses is not null
+        <if test="date[2] != null">
+            and time  &gt;= #{date[2]}
+            and time  &lt; (DATE_ADD(#{date[3]}, INTERVAL 1 DAY))
+        </if>
+
+    </select>
+    <select id="queryIn" resultType="com.finance.account.entity.Shouzhi">
+        select *
+        from shouzhi
+        where category = #{date[1]}
+          and income is not null
+          and time  &gt;= COALESCE(#{date[2]})
+          and time  &lt; COALESCE(DATE_ADD(#{date[3]}, INTERVAL 1 DAY))
+    </select>
+    <select id="queryJstDate" resultType="com.finance.account.entity.Shouzhi">
+        select *
+        from shouzhi
+        where time  &gt;= COALESCE(#{date[2]})
+          and time  &lt; COALESCE(DATE_ADD(#{date[3]}, INTERVAL 1 DAY))
+    </select>
 
 </mapper>
