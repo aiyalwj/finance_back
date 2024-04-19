@@ -4,6 +4,8 @@ spring:
     url: jdbc:mysql://localhost:3306/finance-account?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true&zeroDateTimeBehavior=CONVERT_TO_NULL
     username: root
     password: 123456
+  jackson:
+    time-zone: Asia/Shanghai
 
 server:
   port: 3000

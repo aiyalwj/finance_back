@@ -62,5 +62,10 @@ public class accountController {
         return shouzhiService.queryCond(data);
     }
 
+    @ApiOperation(value = "删除收支")
+    @PostMapping("/delete")
+    public RespBean deleteShouzhi(@RequestParam String id){
+        return shouzhiService.deleteSZ(id);
+    }
 
 }

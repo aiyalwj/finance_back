@@ -31,6 +31,8 @@ public interface ShouzhiMapper extends BaseMapper<Shouzhi> {
 
     List<Shouzhi> queryJstDate(List<String> date);
 
+    void deleteSZ(String id);
+
 }
 
 

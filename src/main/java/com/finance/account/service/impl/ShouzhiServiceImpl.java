@@ -82,6 +82,12 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
         }
         return RespBean.success(result);
     }
+
+    @Override
+    public RespBean deleteSZ(String id) {
+        shouzhiMapper.deleteSZ(id);
+        return RespBean.success();
+    }
 }
 
 
