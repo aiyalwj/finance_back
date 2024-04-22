@@ -16,4 +16,15 @@
         id,name,password,
         phone,email
     </sql>
+    <insert id="registerAccount">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">SELECT LAST_INSERT_ID()</selectKey>
+        insert into usermng(name, password,phone, email)
+        values  (#{user.name},#{user.password},#{user.phone},#{user.email})
+    </insert>
+    <select id="checkPwd" resultType="com.finance.account.entity.Usermng">
+        select *
+        from usermng
+        where name = #{name}
+    </select>
+
 </mapper>

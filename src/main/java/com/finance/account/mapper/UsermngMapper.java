@@ -3,6 +3,7 @@ package com.finance.account.mapper;
 import com.finance.account.entity.Usermng;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
 * @author Windows
@@ -12,7 +13,8 @@ import org.apache.ibatis.annotations.Mapper;
 */
 @Mapper
 public interface UsermngMapper extends BaseMapper<Usermng> {
-
+    Usermng checkPwd(@Param("name") String name);
+    void registerAccount(@Param("user")Usermng user);
 }
 
 
