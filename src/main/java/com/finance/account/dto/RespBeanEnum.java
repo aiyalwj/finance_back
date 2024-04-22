@@ -31,12 +31,12 @@ public enum RespBeanEnum {
     /**
      * name为空
      */
-    LOGIN_ERROR(403,"密码输入错误！","warning"),
+    LOGIN_ERROR(403,"密码输入错误！","error"),
 
     /**
      * id没有找到
      */
-    USER_ID_NOT_FOUND(4004,"该用户ID不存在！","error"),
+    USER_NAME_REPEAT(404,"该用户名称存在！","warning"),
 
     /**
      * name没有找到

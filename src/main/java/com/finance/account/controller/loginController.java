@@ -27,4 +27,10 @@ public class loginController {
     public RespBean register(@RequestBody Usermng usermng){
         return usermngService.registerAccount(usermng);
     }
+
+    @ApiOperation(value = "加载个人信息")
+    @PostMapping("/user/loaderpm")
+    public RespBean loaderPM(@RequestParam("name") String name){
+        return usermngService.loadpm(name);
+    }
 }

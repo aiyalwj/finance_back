@@ -12,4 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface UsermngService extends IService<Usermng> {
     RespBean loginAccount(String name,String password);
     RespBean registerAccount(Usermng usermng);
+
+    RespBean loadpm(String name);
 }

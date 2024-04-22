@@ -36,8 +36,20 @@ public class UsermngServiceImpl extends ServiceImpl<UsermngMapper, Usermng>
 
     @Override
     public RespBean registerAccount(Usermng usermng) {
-        usermngMapper.registerAccount(usermng);
-        return RespBean.success();
+        //判断数据库是否存在该昵称
+        Usermng user = usermngMapper.checkPwd(usermng.getName());
+        if(user != null){
+            return RespBean.error(RespBeanEnum.USER_NAME_REPEAT,usermng.getName());
+        }else {
+            usermngMapper.registerAccount(usermng);
+            return RespBean.success();
+        }
+    }
+
+    @Override
+    public RespBean loadpm(String name) {
+        Usermng user = usermngMapper.checkPwd(name);
+        return RespBean.success(user);
     }
 }
 
