@@ -15,6 +15,8 @@ import org.apache.ibatis.annotations.Param;
 public interface UsermngMapper extends BaseMapper<Usermng> {
     Usermng checkPwd(@Param("name") String name);
     void registerAccount(@Param("user")Usermng user);
+
+    void updateAccount(@Param("user") Usermng user);
 }
 
 

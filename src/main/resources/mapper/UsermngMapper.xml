@@ -21,6 +21,11 @@
         insert into usermng(name, password,phone, email)
         values  (#{user.name},#{user.password},#{user.phone},#{user.email})
     </insert>
+    <update id="updateAccount">
+        update usermng
+        set password = #{user.password},phone = #{user.phone},email = #{user.email}
+        where name = #{user.name}
+    </update>
     <select id="checkPwd" resultType="com.finance.account.entity.Usermng">
         select *
         from usermng

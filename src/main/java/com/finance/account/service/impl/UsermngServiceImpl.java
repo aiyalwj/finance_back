@@ -28,7 +28,6 @@ public class UsermngServiceImpl extends ServiceImpl<UsermngMapper, Usermng>
         }
 
         if(!password.equals(user.getPassword())){
-            System.out.println("不一样");
             return RespBean.error(RespBeanEnum.LOGIN_ERROR,name);
         }
         return RespBean.success();
@@ -50,6 +49,16 @@ public class UsermngServiceImpl extends ServiceImpl<UsermngMapper, Usermng>
     public RespBean loadpm(String name) {
         Usermng user = usermngMapper.checkPwd(name);
         return RespBean.success(user);
+    }
+
+    @Override
+    public RespBean updatepm(Usermng usermng) {
+        if(usermng.getPassword() == "" || usermng.getEmail() == "" || usermng.getPhone() == ""){
+            return RespBean.error(RespBeanEnum.DATA_EMPTY_EXIST);
+        }else{
+            usermngMapper.updateAccount(usermng);
+            return RespBean.success();
+        }
     }
 }
 

@@ -24,6 +24,11 @@
         insert into shouzhi(time,income,expenses,category,notes,belong)
         values (#{shouzhi.time},#{shouzhi.income},#{shouzhi.expenses},#{shouzhi.category},#{shouzhi.notes},#{shouzhi.belong})
     </insert>
+    <insert id="addacountNoCat">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">SELECT LAST_INSERT_ID()</selectKey>
+        insert into shouzhi(time,income,expenses,category,notes,belong)
+        values (#{shouzhi.time},#{shouzhi.income},#{shouzhi.expenses},"默认类别",#{shouzhi.notes},#{shouzhi.belong})
+    </insert>
     <delete id="deleteSZ">
         delete
         from shouzhi

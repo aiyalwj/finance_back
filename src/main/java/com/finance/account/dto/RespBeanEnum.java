@@ -41,7 +41,7 @@ public enum RespBeanEnum {
     /**
      * name没有找到
      */
-    USER_NAME_NOT_FOUND(4005,"该用户NAME不存在！","error");
+    DATA_EMPTY_EXIST(405,"存在信息为空！","warning");
 
 
 

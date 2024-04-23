@@ -33,4 +33,10 @@ public class loginController {
     public RespBean loaderPM(@RequestParam("name") String name){
         return usermngService.loadpm(name);
     }
+
+    @ApiOperation(value = "修改个人信息")
+    @PostMapping("/user/updatepm")
+    public RespBean updatePM(@RequestBody Usermng usermng){
+        return usermngService.updatepm(usermng);
+    }
 }

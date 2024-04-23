@@ -14,4 +14,6 @@ public interface UsermngService extends IService<Usermng> {
     RespBean registerAccount(Usermng usermng);
 
     RespBean loadpm(String name);
+
+    RespBean updatepm(Usermng usermng);
 }

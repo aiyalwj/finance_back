@@ -28,7 +28,11 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
     private ShouzhiMapper shouzhiMapper;
     @Override
     public RespBean addAccount(Shouzhi shouzhi) {
-        shouzhiMapper.addacount(shouzhi);
+        if(shouzhi.getCategory().equals("")){
+            shouzhiMapper.addacountNoCat(shouzhi);
+        }else {
+            shouzhiMapper.addacount(shouzhi);
+        }
         return RespBean.success();
     }
 
