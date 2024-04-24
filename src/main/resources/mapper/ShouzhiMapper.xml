@@ -43,12 +43,14 @@
     <select id="queryAll" resultType="com.finance.account.entity.Shouzhi">
         select *
         from shouzhi
+        where belong = #{name}
         order by time DESC
     </select>
     <select id="queryEx" resultType="com.finance.account.entity.Shouzhi">
         select *
         from shouzhi
-        where category = #{date[1]}
+        where belong =#{date[4]}
+        and category = #{date[1]}
         and expenses is not null
         <if test="date[2] != null">
             and time  &gt;= #{date[2]}
@@ -59,16 +61,38 @@
     <select id="queryIn" resultType="com.finance.account.entity.Shouzhi">
         select *
         from shouzhi
-        where category = #{date[1]}
+        where belong =#{date[4]}
+          and category = #{date[1]}
           and income is not null
-          and time  &gt;= COALESCE(#{date[2]})
-          and time  &lt; COALESCE(DATE_ADD(#{date[3]}, INTERVAL 1 DAY))
+          and time  &gt;= (#{date[2]})
+          and time  &lt; (DATE_ADD(#{date[3]}, INTERVAL 1 DAY))
     </select>
     <select id="queryJstDate" resultType="com.finance.account.entity.Shouzhi">
         select *
         from shouzhi
-        where time  &gt;= COALESCE(#{date[2]})
+        where belong =#{date[4]}
+          and time  &gt;= COALESCE(#{date[2]})
           and time  &lt; COALESCE(DATE_ADD(#{date[3]}, INTERVAL 1 DAY))
+    </select>
+    <select id="incomeStatis" resultType="com.finance.account.entity.Result.StatisData">
+        SELECT category AS name, COUNT(*) AS value
+        FROM shouzhi
+        WHERE category IN (
+            select category
+            from in_cate
+        )
+        and belong = #{name}
+        GROUP BY category
+    </select>
+    <select id="expenseStatis" resultType="com.finance.account.entity.Result.StatisData">
+        SELECT category AS name, COUNT(*) AS value
+        FROM shouzhi
+        WHERE category IN (
+            select category
+            from ex_cate
+        )
+          and belong = #{name}
+        GROUP BY category
     </select>
 
 </mapper>

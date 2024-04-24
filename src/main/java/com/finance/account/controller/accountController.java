@@ -51,8 +51,8 @@ public class accountController {
 
     @ApiOperation(value = "查询所有筛选结果")
     @GetMapping("/queryAll")
-    public RespBean queryAll(){
-        return shouzhiService.queryAll();
+    public RespBean queryAll(@RequestParam("name") String name){
+        return shouzhiService.queryAll(name);
     }
 
     @ApiOperation(value = "根据筛选条件查询")
@@ -67,5 +67,19 @@ public class accountController {
     public RespBean deleteShouzhi(@RequestParam String id){
         return shouzhiService.deleteSZ(id);
     }
+
+
+    @ApiOperation(value = "支出统计")
+    @GetMapping("/exStatis")
+    public RespBean expenseStatis(@RequestParam String name){
+        return shouzhiService.expenseStatis(name);
+    }
+    @ApiOperation(value = "收入统计")
+    @GetMapping("/inStatis")
+    public RespBean incomeStatis(@RequestParam String name){
+        return shouzhiService.incomeStatis(name);
+    }
+
+
 
 }

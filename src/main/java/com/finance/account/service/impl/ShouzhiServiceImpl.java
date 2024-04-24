@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.finance.account.dto.RespBean;
 import com.finance.account.dto.RespBeanEnum;
 import com.finance.account.entity.Result.IndexData;
+import com.finance.account.entity.Result.StatisData;
 import com.finance.account.service.ShouzhiService;
 import com.finance.account.entity.Shouzhi;
 import com.finance.account.mapper.ShouzhiMapper;
@@ -52,8 +53,8 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
     }
 
     @Override
-    public RespBean queryAll() {
-        List<Shouzhi> result = shouzhiMapper.queryAll();
+    public RespBean queryAll(String name) {
+        List<Shouzhi> result = shouzhiMapper.queryAll(name);
         if(result == null){
             return RespBean.error(RespBeanEnum.NOT_DATA);
         }else{
@@ -91,6 +92,21 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
     public RespBean deleteSZ(String id) {
         shouzhiMapper.deleteSZ(id);
         return RespBean.success();
+    }
+
+    @Override
+    public RespBean incomeStatis(String name) {
+        List<StatisData> result = new ArrayList<>();
+        result = shouzhiMapper.incomeStatis(name);
+//        System.out.println(result);
+        return RespBean.success(result);
+    }
+
+    public RespBean expenseStatis(String name){
+        List<StatisData> result = new ArrayList<>();
+        result = shouzhiMapper.expenseStatis(name);
+//        System.out.println(result);
+        return RespBean.success(result);
     }
 }
 

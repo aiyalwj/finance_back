@@ -1,6 +1,7 @@
 package com.finance.account.mapper;
 
 import com.finance.account.entity.Result.IndexData;
+import com.finance.account.entity.Result.StatisData;
 import com.finance.account.entity.Shouzhi;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.MapKey;
@@ -24,7 +25,7 @@ public interface ShouzhiMapper extends BaseMapper<Shouzhi> {
     void addacountNoCat(@Param("shouzhi") Shouzhi shouzhi);
     IndexData loaderData(@Param("date") String date);
 
-    List<Shouzhi> queryAll();
+    List<Shouzhi> queryAll(String name);
 
     List<Shouzhi> queryEx(List<String> date);
 
@@ -33,6 +34,10 @@ public interface ShouzhiMapper extends BaseMapper<Shouzhi> {
     List<Shouzhi> queryJstDate(List<String> date);
 
     void deleteSZ(String id);
+
+    List<StatisData> incomeStatis(String name);
+
+    List<StatisData> expenseStatis(String name);
 
 }
 

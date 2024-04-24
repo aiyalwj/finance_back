@@ -18,9 +18,13 @@ public interface ShouzhiService extends IService<Shouzhi> {
 
     RespBean indexLoader(String date);
 
-    RespBean queryAll();
+    RespBean queryAll(String name);
 
     RespBean queryCond(List<String> data);
 
     RespBean deleteSZ(String id);
+
+    RespBean incomeStatis(String name);
+
+    RespBean expenseStatis(String name);
 }

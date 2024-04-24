@@ -1,5 +1,6 @@
 package com.finance.account;
 
+import com.finance.account.entity.Result.StatisData;
 import com.finance.account.entity.Shouzhi;
 import com.finance.account.mapper.ShouzhiMapper;
 import com.finance.account.service.ShouzhiService;
@@ -38,6 +39,13 @@ class FinanceBackApplicationTests {
         date.add("2024-04-11");
         date.add("2024-04-18");
         List<Shouzhi> result = shouzhiMapper.queryJstDate(date);
+    }
+
+    @Test
+    void incomeStatis(){
+        List<StatisData> result = new ArrayList<>();
+        result = shouzhiMapper.incomeStatis("test");
+        System.out.println(result);
     }
 
 
