@@ -6,6 +6,7 @@ import com.finance.account.dto.RespBeanEnum;
 import com.finance.account.entity.Usermng;
 import com.finance.account.service.UsermngService;
 import com.finance.account.mapper.UsermngMapper;
+import com.finance.account.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,12 @@ public class UsermngServiceImpl extends ServiceImpl<UsermngMapper, Usermng>
             return RespBean.error(RespBeanEnum.USER_NOT_FOUND,name);
         }
 
-        if(!password.equals(user.getPassword())){
+//        if(!password.equals(user.getPassword())){
+//            return RespBean.error(RespBeanEnum.LOGIN_ERROR,name);
+//        }
+
+        Boolean flag = MD5Util.inputPassEQDBPass(password,user.getPassword());
+        if(!flag){
             return RespBean.error(RespBeanEnum.LOGIN_ERROR,name);
         }
         return RespBean.success();
@@ -40,6 +46,8 @@ public class UsermngServiceImpl extends ServiceImpl<UsermngMapper, Usermng>
         if(user != null){
             return RespBean.error(RespBeanEnum.USER_NAME_REPEAT,usermng.getName());
         }else {
+            MD5Util md = new MD5Util();
+            usermng.setPassword(md.inputPassSaveToDBPass(usermng.getPassword()));
             usermngMapper.registerAccount(usermng);
             return RespBean.success();
         }
@@ -52,11 +60,13 @@ public class UsermngServiceImpl extends ServiceImpl<UsermngMapper, Usermng>
     }
 
     @Override
-    public RespBean updatepm(Usermng usermng) {
-        if(usermng.getPassword() == "" || usermng.getEmail() == "" || usermng.getPhone() == ""){
+    public RespBean updatepm(Usermng user) {
+        if(user.getPassword() == "" || user.getEmail() == "" || user.getPhone() == ""){
             return RespBean.error(RespBeanEnum.DATA_EMPTY_EXIST);
         }else{
-            usermngMapper.updateAccount(usermng);
+            MD5Util md = new MD5Util();
+            user.setPassword(md.inputPassSaveToDBPass(user.getPassword()));
+            usermngMapper.updateAccount(user);
             return RespBean.success();
         }
     }

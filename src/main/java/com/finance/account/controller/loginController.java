@@ -18,7 +18,7 @@ public class loginController {
     private UsermngService usermngService;
     @ApiOperation(value = "登录")
     @PostMapping("/login")
-    public RespBean indexLoader(@RequestParam("name")String name,@RequestParam("password") String password){
+    public RespBean login(@RequestParam("name")String name,@RequestParam("password") String password){
         return usermngService.loginAccount(name,password);
     }
 
