@@ -145,6 +145,18 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
 
     @Override
     public RespBean expenseDetailStatis(String name) {
+        List<StatisData> result = shouzhiMapper.exDetailStatis(name);
+        List<List> list = new ArrayList<>();
+        List<String> date = new ArrayList<>();
+        List<String> num = new ArrayList<>();
+        for (int i = 0; i < result.size(); i++) {
+            date.add(result.get(i).getName());
+            num.add(result.get(i).getValue());
+        }
+        list.add(date);
+        list.add(num);
+//        System.out.println(date);
+//        System.out.println(list);
         return null;
     }
 }

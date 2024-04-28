@@ -57,5 +57,10 @@ class FinanceBackApplicationTests {
 //        System.out.println(result);
     }
 
+    @Test
+    void exdetailStatis(){
+        shouzhiService.expenseDetailStatis("test");
+    }
+
 
 }

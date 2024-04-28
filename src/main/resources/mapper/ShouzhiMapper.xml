@@ -93,5 +93,15 @@
           and belong = #{name}
         GROUP BY category
     </select>
+    <select id="exDetailStatis" resultType="com.finance.account.entity.Result.StatisData">
+        select DATE_FORMAT(time, '%Y-%m') AS name,SUM(expenses) AS value
+        from shouzhi
+        where belong = #{name}
+          and category IN (
+            select category
+            from ex_cate
+        )
+        group by DATE_FORMAT(time, '%Y-%m');
+    </select>
 
 </mapper>
