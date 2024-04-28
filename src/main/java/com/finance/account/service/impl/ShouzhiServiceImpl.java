@@ -98,15 +98,54 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
     public RespBean incomeStatis(String name) {
         List<StatisData> result = new ArrayList<>();
         result = shouzhiMapper.incomeStatis(name);
-//        System.out.println(result);
+        Double total = 0.0;
+        StatisData item = new StatisData();
+        for (int i = 0; i < result.size(); i++) {
+            // 处理当前元素
+//            System.out.println(result.get(i));
+            item = result.get(i);
+            total = Double.valueOf(item.getValue())+total;
+//            Double.parseDouble(str);
+        }
+
+        for (int i = 0; i < result.size(); i++) {
+            item = result.get(i);
+            double d = Double.valueOf(item.getValue()) / total * 100;
+            String sd = String.format("%.2f", d);
+            // 处理当前元素
+            item.setValue(sd);
+//            Double.parseDouble(str);
+        }
         return RespBean.success(result);
     }
 
     public RespBean expenseStatis(String name){
         List<StatisData> result = new ArrayList<>();
         result = shouzhiMapper.expenseStatis(name);
-//        System.out.println(result);
+        Double total = 0.0;
+        StatisData item = new StatisData();
+        for (int i = 0; i < result.size(); i++) {
+            // 处理当前元素
+//            System.out.println(result.get(i));
+            item = result.get(i);
+            total = Double.valueOf(item.getValue())+total;
+//            Double.parseDouble(str);
+        }
+
+        for (int i = 0; i < result.size(); i++) {
+            item = result.get(i);
+            double d = Double.valueOf(item.getValue()) / total * 100;
+            String sd = String.format("%.2f", d);
+            // 处理当前元素
+            item.setValue(sd);
+//            Double.parseDouble(str);
+        }
         return RespBean.success(result);
+    }
+
+    @Override
+    public RespBean expenseDetailStatis(String name) {
+        return null;
     }
 }
 

@@ -56,7 +56,6 @@
             and time  &gt;= #{date[2]}
             and time  &lt; (DATE_ADD(#{date[3]}, INTERVAL 1 DAY))
         </if>
-
     </select>
     <select id="queryIn" resultType="com.finance.account.entity.Shouzhi">
         select *

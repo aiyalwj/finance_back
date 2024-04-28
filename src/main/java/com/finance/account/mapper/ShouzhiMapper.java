@@ -39,6 +39,8 @@ public interface ShouzhiMapper extends BaseMapper<Shouzhi> {
 
     List<StatisData> expenseStatis(String name);
 
+
+
 }
 
 

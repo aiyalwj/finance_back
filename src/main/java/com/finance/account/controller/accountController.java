@@ -69,17 +69,22 @@ public class accountController {
     }
 
 
-    @ApiOperation(value = "支出统计")
+    @ApiOperation(value = "支出分布统计")
     @GetMapping("/exStatis")
     public RespBean expenseStatis(@RequestParam String name){
         return shouzhiService.expenseStatis(name);
     }
-    @ApiOperation(value = "收入统计")
+    @ApiOperation(value = "收入分布统计")
     @GetMapping("/inStatis")
     public RespBean incomeStatis(@RequestParam String name){
         return shouzhiService.incomeStatis(name);
     }
 
+    @ApiOperation(value= "支出明细统计")
+    @GetMapping("/exdtalStatis")
+    public RespBean expenseDetailStatis(@RequestParam String name){
+        return shouzhiService.expenseDetailStatis(name);
+    }
 
 
 }

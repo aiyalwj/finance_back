@@ -141,3 +141,23 @@ INSERT INTO `usermng` VALUES (13, 'test11', 'qaEUN4a9d3283ab96dfb89e001649444194
 INSERT INTO `usermng` VALUES (14, 'test12', 'zm8D66cbd68afacf39fee83da194de360e10f', '222222', '123@123.com');
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- SELECT category AS name, COUNT(*) * 100.0/MAX(total_table.total_count) AS value,count(*) as hhh
+-- FROM shouzhi
+--     CROSS JOIN
+--     (
+--     SELECT count(*)as total_count
+--     FROM shouzhi
+--     WHERE category IN
+--     (
+--     SELECT category
+--     FROM ex_cate
+--     )
+--     and belong = "test"
+--     ) AS total_table
+-- WHERE category IN (
+--     select category
+--     from ex_cate
+--     )
+--   and belong = "test"
+-- GROUP BY category

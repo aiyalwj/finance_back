@@ -17,6 +17,9 @@ class FinanceBackApplicationTests {
 
     @Autowired
     private ShouzhiMapper shouzhiMapper;
+
+    @Autowired
+    private ShouzhiService shouzhiService;
     @Test
     void contextLoads() {
     }
@@ -46,6 +49,12 @@ class FinanceBackApplicationTests {
         List<StatisData> result = new ArrayList<>();
         result = shouzhiMapper.incomeStatis("test");
         System.out.println(result);
+    }
+
+    @Test
+    void exbfbStatis(){
+        shouzhiService.expenseStatis("test");
+//        System.out.println(result);
     }
 
 

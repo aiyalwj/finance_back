@@ -27,11 +27,9 @@ public class UsermngServiceImpl extends ServiceImpl<UsermngMapper, Usermng>
         if(user == null){
             return RespBean.error(RespBeanEnum.USER_NOT_FOUND,name);
         }
-
 //        if(!password.equals(user.getPassword())){
 //            return RespBean.error(RespBeanEnum.LOGIN_ERROR,name);
 //        }
-
         Boolean flag = MD5Util.inputPassEQDBPass(password,user.getPassword());
         if(!flag){
             return RespBean.error(RespBeanEnum.LOGIN_ERROR,name);
