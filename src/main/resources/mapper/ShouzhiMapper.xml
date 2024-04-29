@@ -103,5 +103,15 @@
         )
         group by DATE_FORMAT(time, '%Y-%m');
     </select>
+    <select id="inDetailStatis" resultType="com.finance.account.entity.Result.StatisData">
+        select DATE_FORMAT(time, '%Y-%m') AS name,SUM(income) AS value
+        from shouzhi
+        where belong = #{name}
+          and category IN (
+            select category
+            from in_cate
+        )
+        group by DATE_FORMAT(time, '%Y-%m');
+    </select>
 
 </mapper>

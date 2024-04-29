@@ -41,6 +41,8 @@ public interface ShouzhiMapper extends BaseMapper<Shouzhi> {
 
 
     List<StatisData> exDetailStatis(String name);
+
+    List<StatisData> inDetailStatis(String name);
 }
 
 

@@ -29,4 +29,6 @@ public interface ShouzhiService extends IService<Shouzhi> {
     RespBean expenseStatis(String name);
 
     RespBean expenseDetailStatis(String name);
+
+    RespBean incomeDetailStatis(String name);
 }

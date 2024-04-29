@@ -12,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.xml.transform.Result;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
 * @author Windows
@@ -146,6 +143,8 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
     @Override
     public RespBean expenseDetailStatis(String name) {
         List<StatisData> result = shouzhiMapper.exDetailStatis(name);
+        Collections.sort(result);
+//        System.out.println(result);
         List<List> list = new ArrayList<>();
         List<String> date = new ArrayList<>();
         List<String> num = new ArrayList<>();
@@ -157,7 +156,25 @@ public class ShouzhiServiceImpl extends ServiceImpl<ShouzhiMapper, Shouzhi>
         list.add(num);
 //        System.out.println(date);
 //        System.out.println(list);
-        return null;
+        return RespBean.success(list);
+    }
+
+    @Override
+    public RespBean incomeDetailStatis(String name) {
+        List<StatisData> result = shouzhiMapper.inDetailStatis(name);
+        Collections.sort(result);
+        List<List> list = new ArrayList<>();
+        List<String> date = new ArrayList<>();
+        List<String> num = new ArrayList<>();
+        for (int i = 0; i < result.size(); i++) {
+            date.add(result.get(i).getName());
+            num.add(result.get(i).getValue());
+        }
+        list.add(date);
+        list.add(num);
+//        System.out.println(date);
+//        System.out.println(list);
+        return RespBean.success(list);
     }
 }
 

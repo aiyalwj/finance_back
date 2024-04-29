@@ -86,5 +86,11 @@ public class accountController {
         return shouzhiService.expenseDetailStatis(name);
     }
 
+    @ApiOperation(value= "收入明细统计")
+    @GetMapping("/indtalStatis")
+    public RespBean incomeDetailStatis(@RequestParam String name){
+        return shouzhiService.incomeDetailStatis(name);
+    }
+
 
 }
