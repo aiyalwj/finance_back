@@ -4,6 +4,7 @@ import com.finance.account.entity.Result.StatisData;
 import com.finance.account.entity.Shouzhi;
 import com.finance.account.mapper.ShouzhiMapper;
 import com.finance.account.service.ShouzhiService;
+import com.finance.account.utils.MD5Util;
 import io.swagger.annotations.Authorization;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,11 @@ class FinanceBackApplicationTests {
     @Test
     void exdetailStatis(){
         shouzhiService.expenseDetailStatis("test");
+    }
+
+    @Test
+    void login(){
+        System.out.println(MD5Util.inputPassEQDBPass("12345","zN0TB07eb69150f99107ae52ddfcac623fd7a"));
     }
 
 

@@ -18,29 +18,19 @@ public enum RespBeanEnum {
      */
     ERROR(500,"错误","error"),
 
-    /**
-     * id 密码 输入为空
-     */
+
     NOT_DATA(401,"没有数据","warning"),
 
-    /**
-     * id为空
-     */
+
     USER_NOT_FOUND(402,"未找到该用户！","warning"),
 
-    /**
-     * name为空
-     */
+
     LOGIN_ERROR(403,"密码输入错误！","error"),
 
-    /**
-     * id没有找到
-     */
+
     USER_NAME_REPEAT(404,"该用户名称存在！","warning"),
 
-    /**
-     * name没有找到
-     */
+    //无
     DATA_EMPTY_EXIST(405,"存在信息为空！","warning");
 
 
